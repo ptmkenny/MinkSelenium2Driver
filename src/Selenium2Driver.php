@@ -1258,10 +1258,11 @@ JS;
     {
         $value = strval($value);
 
-        if (in_array($elementName, array('input', 'textarea'))) {
-            $existingValueLength = strlen($element->attribute('value'));
-            $value = str_repeat(Key::BACKSPACE . Key::DELETE, $existingValueLength) . $value;
-        }
+	// We want to be able to type into a field multiple times.
+        // if (in_array($elementName, array('input', 'textarea'))) {
+        //     $existingValueLength = strlen($element->attribute('value'));
+        //     $value = str_repeat(Key::BACKSPACE . Key::DELETE, $existingValueLength) . $value;
+        // }
 
         $element->postValue(array('value' => array($value)));
     }
